@@ -23,15 +23,13 @@ public class NamingTest {
 
     // for replace under scores
     @Test
-    @Disabled
     void fourth_test() {
         System.out.println( "fourth method executed." );
     }
 
     @Test
-    @Disabled
     // 이름을 지정하여 사용할 수 있고, 이름 표기 전략보다 높은 우선 순위를 갖는다.
-//    @DisplayName( "다섯 번째 테스트" )
+    @DisplayName( "다섯 번째 테스트" )
     void fifthTest() {
         System.out.println( "fifth method executed." );
     }
