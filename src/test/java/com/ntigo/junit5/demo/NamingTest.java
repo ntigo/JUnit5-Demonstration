@@ -1,6 +1,9 @@
 package com.ntigo.junit5.demo;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
+import org.junit.jupiter.api.Test;
 
 // 테스트 메서드의 이름 표기중 _ 언더 스코어를 공백으로 대체하는 전략 사용
 @DisplayNameGeneration(DisplayNameGenerator.Standard.class)
