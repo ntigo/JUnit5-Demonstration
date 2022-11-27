@@ -1,6 +1,5 @@
 package com.ntigo.junit5.demo;
 
-import java.time.LocalDate;
 import java.util.StringTokenizer;
 
 public class Person {
@@ -9,7 +8,7 @@ public class Person {
     private String name;
     private String birth;
     private String bloodType;
-    private int age;
+    private int weight;
     private int height;
 
     public Person( String name, String birth ) {
@@ -18,9 +17,6 @@ public class Person {
 
         StringTokenizer stringTokenizer = new StringTokenizer( birth, "." );
         int year = Integer.parseInt( stringTokenizer.nextToken() );
-
-        int age = LocalDate.now().getYear() - year;
-        setAge( age );
 
         if ( LIMIT_YEAR > year ) {
             throw new IllegalArgumentException( "get out!! noddang." );
@@ -57,15 +53,15 @@ public class Person {
         this.bloodType = bloodType;
     }
 
-    public int getAge() {
-        return age;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setAge( int age ) {
-        this.age = age;
+    public void setWeight( int weight ) {
+        this.weight = weight;
     }
 
-    public int getTHeight() {
+    public int getHeight() {
         return height;
     }
 

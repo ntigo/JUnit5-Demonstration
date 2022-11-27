@@ -3,6 +3,7 @@ package com.ntigo.junit5.demo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,7 +49,7 @@ public class AssertionTest {
         System.out.println( "first step" );
         assertEquals( "Lee", person.getName() ); // expected fail case.
         System.out.println( "second step" );
-        assertEquals( 55, person.getAge() );
+        assertEquals( 55, person.getWeight() );
         System.out.println( "end" );
     }
 
@@ -60,8 +61,24 @@ public class AssertionTest {
         assertAll(
                 () -> assertNotNull( person, () -> getHighCostString() ),
                 () -> assertEquals( "Lee", person.getName() ),
-                () -> assertEquals( 55, person.getAge() ) );
+                () -> assertEquals( 55, person.getWeight() ) );
     }
 
+    private void delayedSupplier() throws InterruptedException {
+        TimeUnit.SECONDS.sleep( 3 );
+    }
 
+    @Test
+    @DisplayName( "Timeout 테스트" )
+    void timeoutTest() {
+        // 제한 시간 이후에도 모든 루틴의 수행을 보장
+        assertTimeout( Duration.ofSeconds( 1 ), () -> delayedSupplier() );
+    }
+
+    @Test
+    @DisplayName( "TimeoutPreemptively 테스트" )
+    void timeoutPreemptivelyTest() {
+        // 제한 시간 이후에는 루틴을 수행하지 않음.
+        assertTimeoutPreemptively( Duration.ofSeconds( 1 ), () -> delayedSupplier() );
+    }
 }
