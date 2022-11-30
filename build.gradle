@@ -15,6 +15,9 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.9.1'
     testImplementation "org.assertj:assertj-core:3.23.1"
+
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '4.8.0'
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '4.8.0'
 }
 
 test {
@@ -22,10 +25,10 @@ test {
 }
 
 javadoc {
-    options.addStringOption("locale","ko_KR");
-    options.addStringOption("encoding","UTF-8");
-    options.addStringOption("charset","UTF-8");
-    options.addStringOption("docencoding","UTF-8");
+    options.addStringOption("locale","ko_KR")
+    options.addStringOption("encoding","UTF-8")
+    options.addStringOption("charset","UTF-8")
+    options.addStringOption("docencoding","UTF-8")
 }
 
 tasks.withType(JavaCompile) {

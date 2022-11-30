@@ -3,6 +3,7 @@ package com.ntigo.junit5.demo;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.RepetitionInfo;
+import org.junit.jupiter.api.TestInfo;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -124,7 +125,7 @@ public class RepeatTest {
     }
 
     @ParameterizedTest
-    @ArgumentsSource( CustomArgsProvider.class )
+    @ArgumentsSource(CustomArgsProvider.class)
     void testWithCustomArgsProvider( String args ) {
         System.out.println( args );
     }
